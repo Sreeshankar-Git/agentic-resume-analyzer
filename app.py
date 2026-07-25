@@ -1,6 +1,13 @@
+
 import os
 import time
+import streamlit__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
+from crewai import Agent, Crew, Process, Task, LLM
+# ... rest of your imports and code below ... as st
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai_tools import SerperDevTool
 from pypdf import PdfReader
