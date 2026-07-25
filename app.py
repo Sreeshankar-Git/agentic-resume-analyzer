@@ -1,13 +1,10 @@
-
-import os
-import time
-import streamlit__import__('pysqlite3')
+__import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
+import os
+import time
 import streamlit as st
-from crewai import Agent, Crew, Process, Task, LLM
-# ... rest of your imports and code below ... as st
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai_tools import SerperDevTool
 from pypdf import PdfReader
@@ -50,7 +47,7 @@ if st.button("🚀 Analyze Profile with AI Agents", use_container_width=True):
             if serper_api_key:
                 os.environ["SERPER_API_KEY"] = serper_api_key
 
-            # Initialize Gemini LLM using 2.5-flash or 1.5-flash
+            # Initialize Gemini LLM using 2.5-flash
             llm = LLM(
                 model="gemini/gemini-2.5-flash",
                 api_key=google_api_key
@@ -95,8 +92,7 @@ if st.button("🚀 Analyze Profile with AI Agents", use_container_width=True):
                 verbose=True
             )
 
-            # Define Tasks
-         # Define Tasks with Context Pipeline
+            # Define Tasks with Context Pipeline
             task1 = Task(
                 description=f"Analyze the following resume text:\n\n{truncated_resume}\n\nSummarize key technical skills, programming languages, and projects.",
                 expected_output="A list of candidate's technical skills and projects extracted from the resume.",
@@ -114,7 +110,7 @@ if st.button("🚀 Analyze Profile with AI Agents", use_container_width=True):
                             "Produce a Markdown report containing: 1. Matched Skills, 2. Skill Gaps, 3. A detailed 4-Week Action Plan.",
                 expected_output="A markdown report with Skill Gap Analysis and a 4-Week Roadmap.",
                 agent=advisor_agent,
-                context=[task1, task2]  # <--- THIS PASSES THE OUTPUT OF TASK 1 AND 2 TO AGENT 3
+                context=[task1, task2]
             )
 
             # Execute Crew Sequentially
