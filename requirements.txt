@@ -1,7 +1,5 @@
 streamlit
-crewai==0.102.0
-crewai-tools==0.36.0
-langchain-google-genai
+crewai
 pypdf
-pydantic>=2.0,<3.0
-pydantic-settings
+google-generativeai
+pysqlite3-binary
