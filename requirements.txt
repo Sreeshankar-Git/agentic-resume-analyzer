@@ -1,5 +1,5 @@
 streamlit
 crewai
+crewai-tools
 pypdf
-google-generativeai
 pysqlite3-binary
