@@ -1,5 +1,7 @@
 streamlit
-crewai
-crewai-tools
+crewai==0.102.0
+crewai-tools==0.36.0
 langchain-google-genai
 pypdf
+pydantic>=2.0,<3.0
+pydantic-settings
